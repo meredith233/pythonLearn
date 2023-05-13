@@ -28,13 +28,13 @@ while n <= 30:
     x.append(K)
     L1 = n1.get_k(Lu, K, RegionNum, Phi)
     L2 = n2.get_k(K, Lu, Phi)
-    L3 = n3.get_k(Lu, Phi, K)
+    # L3 = n3.get_k(Lu, Phi, K)
     y1.append(n3.get_area(L1))
     y2.append(n3.get_area(L2))
-    y3.append(n3.get_area(L3))
+    # y3.append(n3.get_area(L3))
     yy1.append(n1.cal_e(L1, Phi))
     yy2.append(n1.cal_e(L2, Phi))
-    yy3.append(n1.cal_e(L3, Phi))
+    # yy3.append(n1.cal_e(L3, Phi))
 
 # encoding=utf-8
 

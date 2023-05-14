@@ -13,11 +13,7 @@ def by_phi(t):
 
 
 def cal_h(lu, phi, k):
-    # 用队列 Ｇ 来存放所有位置单元。在 Ｇ 中将概率与用户所在
-    # 位置单元概率相同的放在用户左侧，将概率不同的以概率降
-    # 序的方式放在用户右侧。
     G = []
-    Gsub = []
     h = []
     for x1 in range(N):
         for y1 in range(N):

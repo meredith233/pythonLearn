@@ -9,7 +9,7 @@
 
 
 # ----------------------------------------------------------------------------------------------------------------------
-N = 100  # 数据集长
+N = 1000  # 数据集长
 
 
 def init_dataset():
@@ -28,15 +28,15 @@ def init_dataset():
     # 数据集数据范围为 [0, 10000]
     # 均匀划分为 100 * 100 的坐标系内
     # 范围内点数作为nqi
-    for x in range(100):
-        for y in range(100):
+    for x in range(N):
+        for y in range(N):
             if y == 0:
                 Nqi.append([])
             Nqi[x].append(1)
 
     for node in nodes:
-        x = int(node[0] / 100) - 1
-        y = int(node[1] / 100) - 1
+        x = int(node[0] / 10) - 1
+        y = int(node[1] / 10) - 1
         Nqi[x][y] += 1
     # 计算区域总查询数
     sum_nqi = 0

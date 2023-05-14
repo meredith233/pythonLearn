@@ -2,6 +2,8 @@ import math
 
 from alive_progress import alive_bar
 
+import utils
+
 W = 20
 N = 100
 R = 0.5
@@ -190,21 +192,6 @@ def get_region_list(zone):
     return temp_list
 
 
-def cal_e(a_s, phi):
-    sum_phi = 0
-    for loc in a_s:
-        sum_phi += phi[loc[0]][loc[1]]
-
-    e = 0
-    for loc in a_s:
-        phi_val = phi[loc[0]][loc[1]]
-        if phi_val == 0:
-            continue
-        pj = phi_val / sum_phi
-        e -= pj * math.log(pj, 2)
-    return e
-
-
 # 扰动位置生成
 # acr 分区
 # user_loc 用户位置
@@ -217,7 +204,7 @@ def cal_fake_loc(acr_list, user_loc, k, phi):
         e_max = 0  # 最大熵
         for j in acr_list:
             a_s.append(j)
-            e_as = cal_e(a_s, phi)
+            e_as = utils.cal_e(a_s, phi)
 
             if e_as > e_max:
                 e_max = e_as

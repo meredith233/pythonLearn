@@ -7,7 +7,7 @@ import random
 # curl https://www.cs.utah.edu/\~lifeifei/research/tpq/NA.cnode > na_dataset.cnode
 # 数据集坐标范围 [1, 10000]
 
-Rou = 0.01
+Rou = 0.5
 N = 100
 
 # ----------------------------------------------------------------------------------------------------------------------

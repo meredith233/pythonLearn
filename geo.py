@@ -3,7 +3,6 @@ import random
 
 import utils
 
-N = 1000
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -15,27 +14,16 @@ def by_phi(t):
 def cal_h(lu, phi, k):
     G = []
     h = []
-    for x1 in range(N):
-        for y1 in range(N):
+    for x1 in range(lu[0] - 10, lu[0] + 10):
+        for y1 in range(lu[1] - 10, lu[1] + 10):
             if x1 == lu[0] & y1 == lu[1]:
                 continue
-            if phi[x1][y1] == phi[lu[0]][lu[1]]:
-                G.append([x1, y1])
-            else:
-                Gsub.append({"phi": phi[x1][y1], "loc": [x1, y1]})
-    Gsub = sorted(Gsub, key=by_phi, reverse=True)
+            G.append({"phi": abs(phi[x1][y1] - phi[lu[0]][lu[1]]), "loc": [x1, y1]})
+    G = sorted(G, key=by_phi)
 
-    # 从G中随机选K个
-    # 在 Ｇ 中，从用户左侧 随 机 选 取 Ｋ 个 位 置 单 元，并 从 用 户 右 侧
-    # 顺序选取 Ｋ 个位置单元，将这２Ｋ 个位置单元放入队列 Ｈ 中。
-    for i in range(k):
-        size = len(G)
-        r = random.randint(0, size - 1)
-        h.append(G[r])
-        G.remove(G[r])
     # 从sub中选前K个
-    for i in range(k):
-        h.append(Gsub[i]['loc'])
+    for i in range(k * 2):
+        h.append(G[i]['loc'])
     return h
 
 

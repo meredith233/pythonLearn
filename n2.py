@@ -7,8 +7,6 @@ import random
 # curl https://www.cs.utah.edu/\~lifeifei/research/tpq/NA.cnode > na_dataset.cnode
 # 数据集坐标范围 [1, 10000]
 
-Rou = 0.5
-N = 100
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -21,11 +19,11 @@ def by_phi(t):
 
 
 def cal_kb(lu, phi):
-    for x1 in range(N):
-        for y1 in range(N):
+    for x1 in range(lu[0] - 10, lu[0] + 10):
+        for y1 in range(lu[1] - 10, lu[1] + 10):
             if x1 == lu[0] & y1 == lu[1]:
                 continue
-            if phi[x1][y1] == phi[lu[0]][lu[1]]:
+            if abs(phi[x1][y1] - phi[lu[0]][lu[1]]) < 0.0001:
                 Kb.append([x1, y1])
             # else:
             #     if Phi[x1][y1] > Phi[Lu[0]][Lu[1]]:

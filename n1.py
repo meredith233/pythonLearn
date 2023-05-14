@@ -170,6 +170,7 @@ def cal_acr(user_loc, region_total, k):
     loc_num = RegionNode[zu]
     # 如果分区中的位置数量小于2k+1，考虑更换分区
     while loc_num < 2 * k + 1:
+
         zi_item = zi_list[index]
         index += 1
         if zi_item['r'] >= R:

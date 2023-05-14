@@ -5,6 +5,7 @@ import utils
 
 N = 1000
 
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 
@@ -19,8 +20,8 @@ def cal_h(lu, phi, k):
     G = []
     Gsub = []
     h = []
-    for x1 in range(N):
-        for y1 in range(N):
+    for x1 in range(lu[0] - 5, lu[0] + 5):
+        for y1 in range(lu[1] - 5, lu[1] + 5):
             if x1 == lu[0] & y1 == lu[1]:
                 continue
             if phi[x1][y1] == phi[lu[0]][lu[1]]:
